@@ -10,7 +10,7 @@ class Player extends GameObject {
 
     @Override
     public char getSymbol() {
-        return (char)50;
+        return 'P';
     }
 
     public void moveUp() {
