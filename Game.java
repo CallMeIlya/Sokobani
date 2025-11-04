@@ -1,13 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 class Game {
-    static int grid[][] = {
-            {0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0},
-            {0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0}
+    ArrayList<GameObject> Objects = new ArrayList<>();
+
+    static char grid[][] = {
+            {'#', '#', '#', '#', '#'},
+            {'#', '.', '.', '.', '#'},
+            {'#', '.', '.', '.', '#'},
+            {'#', '.', '.', '.', '#'},
+            {'#', '#', '#', '#', '#'}
     };
+
+    public static void InnitializeGrid() {
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+
+            }
+        }
+    }
+
 
     public static void printGrid(Player player) {
         Position playerPos = player.getPosition();
