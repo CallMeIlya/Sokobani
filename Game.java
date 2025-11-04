@@ -1,7 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 class Game {
-    int grid[][] = {
+    static int grid[][] = {
             {0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0},
             {0, 0, 1, 0, 0},
@@ -9,12 +9,12 @@ class Game {
             {0, 0, 0, 0, 0}
     };
 
-    public void printGrid(Player player) {
+    public static void printGrid(Player player) {
         Position playerPos = player.getPosition();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (i == playerPos.getY() && j == playerPos.getX()) {
-                    System.out.print(".");
+                    System.out.print(player.getSymbol());
                 } else {
                     System.out.print(grid[i][j]);
                 }
@@ -23,12 +23,13 @@ class Game {
         }
     }
 
-    public void main(String args[]) {
+    public static void main(String args[]) {
         System.out.println("Sokobani, start!");
 
-        Player player = new Player(new Position(2, 2));
+        Player player = new Player(2, 2);
+        System.out.println(""+player.getPosition());
 
-        this.printGrid(player);
+        printGrid(player);
     }
 }
 
