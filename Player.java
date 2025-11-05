@@ -1,6 +1,6 @@
 class Player extends GameObject {
-    private static final int gridWidth = 5;
-    private static final int gridHeight = 5;
+    private static final int gridWidth = 7;
+    private static final int gridHeight = 7;
 
     //The reason that movement is flipped is to the visual representation is matched with the function names
     // (IE moving up actually moves the player up on the grid)
