@@ -1,6 +1,4 @@
-class Player extends GameObject {
-    private static final int gridWidth = 7;
-    private static final int gridHeight = 7;
+class Player extends GameObject implements movable {
 
     //The reason that movement is flipped is to the visual representation is matched with the function names
     // (IE moving up actually moves the player up on the grid)
@@ -9,29 +7,30 @@ class Player extends GameObject {
     }
 
     @Override
+    public boolean isMovable() {return true;}
+    public boolean canCollide() {return true;}
+
+    @Override
     public char getSymbol() {
         return 'P';
     }
 
-    public void moveUp() {
-        if(this.position.getY() <= 0) {return;}
-        this.position.setY(this.position.getY() - 1);
+    public void move(int x, int y) {
+        int newX = position.getX() + x;
+        int newY = position.getY() + y;
+
+        // Ensure the new position is within grid bounds
+        if (newX >= 0 && newX <= gridWidth && newY >= 0 && newY <= gridHeight) {
+            position.setX(newX);
+            position.setY(newY);
+        }
+
     }
 
-    public void moveDown() {
-        if(this.position.getY() >= gridHeight-1) {return;}
-        this.position.setY(this.position.getY() + 1);
-    }
 
-    public void moveLeft() {
-        if(this.position.getX() <= 0) {return;}
-        this.position.setX(this.position.getX() - 1);
-    }
 
-    public void moveRight() {
-        if(this.position.getX() >= gridWidth-1) {return;}
-        this.position.setX(this.position.getX() + 1);
-    }
+
+
 
     public void setPosition(Position position) {
         this.position = position;

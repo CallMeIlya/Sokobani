@@ -25,15 +25,35 @@ class Game {
             {'.','.','.','.','.','.','.'}
     };
 
+    boolean isMovable(int x, int y) {
+        for (int i = 0; i < Objects.size(); i++) {
+            GameObject object = Objects.get(i);
+            if(object.getPosition().getX() == x && object.getPosition().getY() == y) {
+                if(true) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
+    public static GameObject getObjectAt(int x, int y) {
+        for (int i = 0; i < Objects.size(); i++) {
+            GameObject object = Objects.get(i);
+            if(object.getPosition().getX() == x && object.getPosition().getY() == y) {
+                return object;
+            }
+        }
+        return null;
+    }
 
     public static void printGrid(Player player) {
         Position playerPos = player.getPosition();
-        for (int i = 0; i < Game.grid.length; i++) {
-            for (int j = 0; j < Game.grid[i].length; j++) {
+        for (int i = Game.grid.length-1; i > 0; i--) {
+            for (int j = 0; j < Game.grid.length; j++) {
                 if (i == playerPos.getY() && j == playerPos.getX()) {
-                    System.out.print(player.getSymbol());
-                } else {
+                System.out.print(player.getSymbol()); }
+                else {
                     boolean printedObject = false;
                     for(int p = 0; p < Objects.size(); p++) {
                         if (Game.Objects.get(p).getPosition().getX() == j && Game.Objects.get(p).getPosition().getY() == i) {
@@ -60,18 +80,49 @@ class Game {
 
         while(true) {
             String inputChar = input.nextLine();
+
+           GameObject object;
+
             switch (inputChar) {
                 case "w":
-                    player.moveUp();
+                    object = getObjectAt(player.getPosition().getX()+0, player.getPosition().getY()+1);
+                    if(object == null) {
+                        player.move(0,+1);
+                    } else if(object.canCollide() && object.isMovable()) {
+                        player.move(0,+1);
+                    } else if(!object.canCollide()) {
+                        //do nothign
+                    }
                     break;
                 case "a":
-                    player.moveLeft();
+                    object = getObjectAt(player.getPosition().getX()-1, player.getPosition().getY()+0);
+                    if(object == null) {
+                        player.move(-1,0);
+                    } else if(object.canCollide() && object.isMovable()) {
+                        player.move(-1,0);
+                    } else if(!object.canCollide()) {
+                        //do nothign
+                    }
                     break;
                 case "s":
-                    player.moveDown();
+                    object = getObjectAt(player.getPosition().getX()+0, player.getPosition().getY()-1);
+                    if(object == null) {
+                        player.move(0,-1);
+                    } else if(object.canCollide() && object.isMovable()) {
+                        player.move(0,-1);
+                    } else if(!object.canCollide()) {
+                        //do nothign
+                    }
                     break;
                 case "d":
-                    player.moveRight();
+                    object = getObjectAt(player.getPosition().getX()+1, player.getPosition().getY()+0);
+                    if(object == null) {
+                        player.move(1,0);
+                    } else if(object.canCollide() && object.isMovable()) {
+                        player.move(1, 0);
+                    } else if(!object.canCollide()) {
+                        //do nothing
+                    }
                     break;
                 case "q":
                     System.out.println("Quitting game.");
