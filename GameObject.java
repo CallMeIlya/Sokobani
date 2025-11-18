@@ -1,7 +1,7 @@
 abstract class GameObject {
-    public Position position;
+    protected Position position;
 
-    public int symbol;
+    protected int symbol;
 
     public GameObject(int x, int y) {
         position = new Position(x, y);

@@ -1,10 +1,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/**
+ * This class draws a grid and allows a player to move around using WASD keys.
+ * @deprecated Grid is implemented because it's easier to visualize the player's position this way.
+ * @author Ilya Kuznetsov
+ * @version 1.0
+ */
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 class Game {
     static ArrayList<GameObject> Objects = new ArrayList<>();
+
 
     static char grid[][] = {
             {'.','.','.','.','.','.','.'},
