@@ -49,7 +49,7 @@ class Game {
 
     public static void printGrid(Player player) {
         Position playerPos = player.getPosition();
-        for (int i = Game.grid.length-1; i > 0; i--) {
+        for (int i = Game.grid.length-1; i >= 0; i--) {
             for (int j = 0; j < Game.grid.length; j++) {
                 if (i == playerPos.getY() && j == playerPos.getX()) {
                 System.out.print(player.getSymbol()); }
@@ -88,7 +88,7 @@ class Game {
                     object = getObjectAt(player.getPosition().getX()+0, player.getPosition().getY()+1);
                     if(object == null) {
                         player.move(0,+1);
-                    } else if(object.canCollide() && object.isMovable()) {
+                    } else if(object.canCollide() && object.isMovable()) { //todo handle box logic
                         player.move(0,+1);
                     } else if(!object.canCollide()) {
                         //do nothign
