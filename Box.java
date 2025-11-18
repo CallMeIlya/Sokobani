@@ -11,6 +11,7 @@ public class Box extends GameObject implements movable {
         int newX = position.getX() + x;
         int newY = position.getY() + y;
 
+
         // Ensure the new position is within grid bounds
         if (newX >= 0 && newX < gridWidth && newY >= 0 && newY < gridHeight) {
             position.setX(newX);
