@@ -7,8 +7,6 @@ abstract class GameObject {
     public abstract boolean isMovable();
     public abstract boolean canCollide();
 
-
-
     public GameObject(int x, int y) {
         position = new Position(x, y);
     }

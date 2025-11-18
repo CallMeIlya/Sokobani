@@ -79,7 +79,8 @@ class Game {
                     object = getObjectAt(player.getPosition().getX()+0, player.getPosition().getY()+1);
                     if(object == null) {
                         player.move(0,+1);
-                    } else if(object.canCollide() && object.isMovable()) { //todo handle box logic
+                    } else if(object.canCollide() && object.isMovable()) {
+                        //todo handle box logic
                         player.move(0,+1);
                     } else if(!object.canCollide()) {
                         //do nothign
