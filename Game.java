@@ -25,21 +25,9 @@ class Game {
             {'.','.','.','.','.','.','.'}
     };
 
-    boolean isMovable(int x, int y) {
-        for (int i = 0; i < Objects.size(); i++) {
-            GameObject object = Objects.get(i);
-            if(object.getPosition().getX() == x && object.getPosition().getY() == y) {
-                if(true) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     public static GameObject getObjectAt(int x, int y) {
-        for (int i = 0; i < Objects.size(); i++) {
-            GameObject object = Objects.get(i);
+        for (GameObject object : Objects) {
             if(object.getPosition().getX() == x && object.getPosition().getY() == y) {
                 return object;
             }
