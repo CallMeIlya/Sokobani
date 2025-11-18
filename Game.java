@@ -63,7 +63,10 @@ class Game {
         System.out.println("Sokobani, start!");
 
         Player player = new Player(2, 2);
+
         Objects.add(new Wall(1,1));
+        Objects.add(new Box(1,2));
+
         printGrid(player);
 
         while(true) {

@@ -4,8 +4,6 @@ abstract class GameObject {
     public static final int gridWidth = 7;
     public static final int gridHeight = 7;
 
-    protected int symbol;
-
     public abstract boolean isMovable();
     public abstract boolean canCollide();
 
